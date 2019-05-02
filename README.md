@@ -1,4 +1,4 @@
-This is just the src and www files, dependencies, platforms, and plugins will have to be installed after downloading.
+This is just the src and www files; dependencies, platforms, and plugins will have to be installed after downloading.
 
 Local Notifications: 
 ionic cordova plugin add cordova-plugin-local-notification
