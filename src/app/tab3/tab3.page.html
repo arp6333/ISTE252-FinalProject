@@ -1,0 +1,23 @@
+<!--
+  Page for viewing Youtube vidoes of the movie / TV show.
+  -->
+<ion-header>
+  <ion-toolbar color="danger">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Top 5 Youtube Results</ion-title>
+  </ion-toolbar>
+</ion-header>
+ 
+<ion-content>
+  <ion-list>
+    <ion-item button *ngFor="let video of videos | async" (click)="openVideo(video.id.videoId)" detail-none>
+      <ion-thumbnail item-start>
+        <img [src]="video.snippet.thumbnails.default.url">
+      </ion-thumbnail>
+      <h2>{{ video.snippet.title }}</h2>
+      <br/><p>{{ video.snippet.description }}</p>
+    </ion-item>
+  </ion-list>
+</ion-content>

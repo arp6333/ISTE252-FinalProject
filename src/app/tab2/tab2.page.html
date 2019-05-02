@@ -1,0 +1,32 @@
+<!--
+  Page for viewing the watchlist.
+  -->
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons slot="end">
+          <ion-button (click)="presentAddNewPrompt();">
+              <ion-icon slot="icon-only" name="add"></ion-icon>
+          </ion-button>
+      </ion-buttons>
+    <ion-title>Watchlist</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+  <!-- Check if playlist is empty. -->
+  <ion-title *ngIf="list?.length < 1">Your watchlist is empty! Go to the 'search' tab or manually add movies with the plus sign at the top of the page.</ion-title>
+
+  <ion-list *ngFor="let item of list">
+    <ion-item-sliding>
+      <ion-item-options side="start">
+        <ion-item-option (click)="delete(item)" color="danger" expandable>
+          Delete
+        </ion-item-option>
+      </ion-item-options>
+        <ion-item>{{item}}</ion-item>
+    </ion-item-sliding>
+    <ion-item button [routerLink]="['/', 'youtube', item]" color="danger">Search Youtube?</ion-item>
+  </ion-list>
+
+</ion-content>
